@@ -1,9 +1,7 @@
 name: Demo
 on:
-  push:
-  pull_request:
-  schedule:
-    - cron: '30 5,17 * * *'
+  - push
+  - pull_request
 
 env:
   go-version: '~1.18.0'
