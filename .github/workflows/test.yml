@@ -26,10 +26,12 @@ jobs:
             - run: go run .
     test:
       runs-on: ubuntu-latest
+      env:
+        TEST_VAR: ${{ secrets.TEST_VAR }}
       steps:
         - uses: actions/checkout@v3
         - uses: actions/setup-go@v3
           with:
             go-version: ${{ env.go-version }}
         - run: go test -v ./...
-        - run: echo "${go-version}"
+        - run: echo "${TEST_VAR}"
